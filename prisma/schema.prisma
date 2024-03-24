@@ -1,0 +1,35 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Clubes {
+    id String @id @default(auto()) @map("_id") @db.ObjectId
+    nome String
+    fundacao String
+    logo_url String
+    estadio String
+    club_tag String
+    cidade String
+    jogadores Jogadores[]
+}
+
+model Jogadores {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  discord_id  String     
+  nome        String
+  pso_id      String
+  steam_url   String
+  clubeId     String?   @map("clube_id") @db.ObjectId
+  clube       Clubes?   @relation(fields: [clubeId], references: [id])
+}

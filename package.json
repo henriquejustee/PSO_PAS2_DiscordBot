@@ -1,0 +1,18 @@
+{
+  "name": "PSO_PAS2_DiscordBot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/henriquejustee/PSO_PAS2_DiscordBot.git",
+  "author": "aelys <aelysch@proton.me>",
+  "license": "MIT",
+  "dependencies": {
+    "@prisma/client": "^5.11.0",
+    "discord.js": "^14.14.1",
+    "dotenv": "^16.4.5",
+    "prisma": "^5.11.0"
+  },
+  "scripts": {
+    "dev": "node index.js",
+    "deploy": "node Deploy_Commands.js"
+  }
+}
